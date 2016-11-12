@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Nano Degree Portfolio</string>
+    <string name="project_1_name">Popular Movies</string>
+    <string name="project_2_name">Build it Bigger</string>
+    <string name="project_3_name">Make Your App Material</string>
+    <string name="project_4_name">Go Ubiquitous</string>
+    <string name="project_5_name">Capstone</string>
+    <string name="project_6_name">Stock Hawk</string>
 </resources>
