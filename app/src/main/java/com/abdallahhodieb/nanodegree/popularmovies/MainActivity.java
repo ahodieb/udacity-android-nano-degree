@@ -3,9 +3,12 @@ package com.abdallahhodieb.nanodegree.popularmovies;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.abdallahhodieb.nanodegree.popularmovies.api.Movie;
 import com.abdallahhodieb.nanodegree.popularmovies.api.TMDBService;
@@ -21,6 +24,26 @@ public class MainActivity extends AppCompatActivity {
     private final static Gson gson = new Gson();
 
     private MoviesGridViewAdapter gridAdapter;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_order_by: {
+                Toast.makeText(getBaseContext(), "Hello world", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
