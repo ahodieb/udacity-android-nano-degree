@@ -27,6 +27,7 @@ public class GridDataFetcher {
     private final TMDBService service;
     private final MoviesGridViewAdapter adapter;
     private final GridView gridView;
+    private long page;
 
     public GridDataFetcher(@NonNull TMDBService service, @NonNull String apiKey,
                            @NonNull GridView gridView, @NonNull MoviesGridViewAdapter adapter) {
@@ -35,13 +36,15 @@ public class GridDataFetcher {
         this.apiKey = apiKey;
         this.adapter = adapter;
         this.gridView = gridView;
+        this.page = 1L;
+    }
+
+    public void fetchNextPage() {
+        page++;
+        fetch();
     }
 
     public void fetch() {
-        fetch(1L);
-    }
-
-    void fetch(final long page) {
         String sortBy = getSortOrderFromPreferences();
         Call<MovieResultsPage> call = service.discoverMovies(apiKey, sortBy, page);
 
@@ -57,7 +60,7 @@ public class GridDataFetcher {
                         .setAction(R.string.retry, new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                fetch(page);
+                                fetch();
                             }
                         })
                         .show();

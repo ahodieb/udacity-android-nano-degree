@@ -6,7 +6,6 @@ import android.widget.AbsListView;
 public class MoviesGridScrollListener implements AbsListView.OnScrollListener {
 
     private final GridDataFetcher dataFetcher;
-    private long pageToLoad = 1L;
 
     public MoviesGridScrollListener(GridDataFetcher dataFetcher) {
         this.dataFetcher = dataFetcher;
@@ -15,7 +14,7 @@ public class MoviesGridScrollListener implements AbsListView.OnScrollListener {
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (isIdle(scrollState) && reachedFirstHalf(view)) {
-            dataFetcher.fetch(pageToLoad++);
+            dataFetcher.fetchNextPage();
         }
     }
 
