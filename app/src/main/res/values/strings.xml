@@ -5,4 +5,6 @@
     <string name="pref_sort_order_default_value">popularity.desc</string>
     <string name="retry">Retry</string>
     <string name="no_connection_found">No connection found.</string>
+    <string name="sort_by_action_title">Order by</string>
+    <string name="title_activity_settings">Settings</string>
 </resources>
