@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MovieDetailsActivity"
             android:label="@string/title_activity_movie_details"
@@ -28,6 +29,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.abdallahhodieb.nanodegree.popularmovies.MainActivity" />
         </activity>
-    </application>
 
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.abdallahhodieb.nanodegree.popularmovies.MainActivity" />
+        </activity>
+    </application>
 </manifest>
