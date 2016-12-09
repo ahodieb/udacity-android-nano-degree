@@ -10,5 +10,5 @@ public interface TMDBService {
     Call<MovieResultsPage> discoverMovies(@Query("api_key") String apiKey, @Query("sort_by") String sortBy, @Query("page") Long page);
 
     @GET("movie/{movie_id}")
-    Call getMovieDetails(@Path("movie_id") long movieId, @Query("api_key") String apiKey);
+    Call<Movie> getMovieDetails(@Path("movie_id") long movieId, @Query("api_key") String apiKey);
 }
