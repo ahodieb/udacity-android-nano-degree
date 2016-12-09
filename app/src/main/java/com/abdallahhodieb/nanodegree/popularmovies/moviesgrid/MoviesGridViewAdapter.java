@@ -2,7 +2,6 @@ package com.abdallahhodieb.nanodegree.popularmovies.moviesgrid;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,14 +61,11 @@ public class MoviesGridViewAdapter extends ArrayAdapter<Movie> {
 
         void fillValues(Movie movie) {
             String posterImagePath = movie.getPosterImagePath(Movie.PosterSize.w185);
-            try {
-                Picasso.with(view.getContext())
-                        .load(posterImagePath)
-                        .into(imageView);
-            } catch (Exception e) {
-                this.imageView.setBackgroundResource(R.drawable.not_available);
-                Log.e(LOG_TAG, "Failed to load image for movie:  " + movie.getId() + " , with path: " + posterImagePath, e);
-            }
+            Picasso.with(view.getContext())
+                    .load(posterImagePath)
+                    .error(R.drawable.not_available)
+                    .into(imageView);
+
         }
     }
 }
