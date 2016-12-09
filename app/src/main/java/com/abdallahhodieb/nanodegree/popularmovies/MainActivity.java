@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.abdallahhodieb.nanodegree.popularmovies.api.Movie;
 import com.abdallahhodieb.nanodegree.popularmovies.api.TMDBService;
@@ -34,12 +33,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.action_order_by: {
-                Toast.makeText(getBaseContext(), "Hello world", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, SettingsActivity.class));
-                return true;
-            }
+        if (id ==  R.id.action_order_by ) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
